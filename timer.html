@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src = "timerScript.js"></script>
+	<link rel = "stylesheet" href = "timerSS.css" />
+</head>
+
+<body>
+	<input id = "hourInput" value = 0></input>
+	<span>hours</span>
+	<input id = "minuteInput" value = 0></input>
+	<span>minutes</span>
+	<input id = "secondInput" value = 0></input>
+	<span>seconds</span>
+	<br>
+	<span id = "start" onClick = "start();">time me!</span>
+	<br><br>
+	<h1 id = "hrDisplay"></h1>
+	<h1 class = "hidden">:</h1>
+	<h1 id = "minDisplay"></h1>
+	<h1 class = "hidden">:</h1>
+	<h1 id = "secDisplay"></h1>
+	<br>
+	<span id = "reset" class = "hidden" onClick  = "reload();">reset</span>
+	<br>
+	<span id = "pause" class = "hidden" onClick = "pause();">pause</span>
+	<span id = "continue" style = "color: white" class= "hidden" onClick = "cont();">continue</span>
+	
+</body>
+
+</html>
