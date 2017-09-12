@@ -1,4 +1,3 @@
-
 var hours;
 var minutes;
 var seconds;
@@ -6,16 +5,18 @@ var time;
 function start(){
 	
 	//get values from input boxes
-	hours = document.getElementById("hourInput").value;
-	minutes = document.getElementById("minuteInput").value;
-	seconds = document.getElementById("secondInput").value;
+	//Number function converts string to int
+	hours = Number(document.getElementById("hourInput").value); 
+	minutes = Number(document.getElementById("minuteInput").value);
+	seconds = Number(document.getElementById("secondInput").value);
 
-	//if more than 60 seconds or minutes, convert to standard time measurements
+	//if more than 60 seconds or minutes, convert extra seconds (xS) to minutes
 	if (seconds > 59){
 		var xS = Math.floor(seconds / 60);
-		xS = xS/1;
+		xS = xS/1;                                       //what
 		seconds = Math.floor(seconds % 60);   //JAVASCRIPT DOESN'T HAVE INTEGER DIVISION :(
 		minutes += xS;
+		
 	}
 
 	if(minutes > 59){
