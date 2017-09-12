@@ -2,13 +2,22 @@ var hours;
 var minutes;
 var seconds;
 var time;
+
 function start(){
 	
 	//get values from input boxes
 	//Number function converts string to int
+
 	hours = Number(document.getElementById("hourInput").value); 
 	minutes = Number(document.getElementById("minuteInput").value);
 	seconds = Number(document.getElementById("secondInput").value);
+
+	if(isNaN(hours) || isNaN(minutes) || isNaN(seconds)){
+		alert("enter a real number");
+		location.reload(true);
+		//refreshes the page 
+		//this removes the need for a do-while loop for input checking
+	}
 
 	//if more than 60 seconds or minutes, convert extra seconds (xS) to minutes
 	if (seconds > 59){
@@ -25,6 +34,9 @@ function start(){
 		minutes = Math.floor(minutes % 60);
 		hours += xM;
 	}
+	console.log(hours);
+	console.log(minutes);
+	console.log(seconds);
 
 	$("#start").css("color", "white"); //hides start button & removes functionality
 	$("#start").removeAttr("onClick");
@@ -75,20 +87,22 @@ function timer(){
 
 		if(seconds.length < 2){
 			seconds = "0" + seconds;
-		}else if(seconds.length ==3){
-			seconds = seconds.substring(1);
+		}else if(seconds.length >= 3){
+			while(seconds.length >=3){ //gets rid of leading 0's
+				seconds = seconds.substring(1);
+			}
 		}
 
 		if(minutes.length < 2){
 			minutes = "0" + minutes;
-		}else if(minutes.length ==3){
-			minutes = minutes.substring(1);
+		}else if(minutes.length >=3){
+			while(minutes.length >=3){//gets rid of leading 0's
+				minutes = minutes.substring(1);
+			}
 		}
 	
 		if(hours.length < 2){
 			hours = "0" + hours;
-		}else if(hours.length ==3){
-			hours = hours.substring(1);
 		}
 		
 		document.getElementById("hrDisplay").innerHTML = hours;
